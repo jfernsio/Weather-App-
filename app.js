@@ -8,7 +8,7 @@ const widjet = document.getElementById('img');
 const getWeather =  async () => {
     let val = inputVal.value;
 console.log(val);
-    const url = `http://api.weatherapi.com/v1/current.json?key=c118ef9f653240ef942182915240105&q=${val}`;
+    const url = `https://api.weatherapi.com/v1/current.json?key=c118ef9f653240ef942182915240105&q=${val}`;
     let response =  await fetch(url);
     console.log(response);
     let data = await response.json();
