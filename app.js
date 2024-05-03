@@ -23,7 +23,7 @@ const getWeather =  async () => {
     // console.log(val.toUpperCase);
     // console.log(uper);
 console.log(val);
-    const url = `http://api.weatherapi.com/v1/forecast.json?key=c118ef9f653240ef942182915240105&q=${val}&days=3`;
+    const url = `https://api.weatherapi.com/v1/forecast.json?key=c118ef9f653240ef942182915240105&q=${val}&days=3`;
     let response =  await fetch(url);
     console.log(response);
     let data = await response.json();
