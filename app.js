@@ -7,11 +7,17 @@ const widjet = document.getElementById('img');
 const cityTxt = document.getElementById('city');
 const forec = document.getElementById('desc');
 const region = document.getElementById('temp');
-const localTime = document.getElementById('time');
-const Kal =  document.getElementById('tom'); 
-const dayAfter = document.getElementById('dayAftr');
-const parso = document.getElementById('parso');
 
+const Kal =  document.getElementById('tom'); 
+const kalIcon = document.getElementById('img2');
+const kalTemp = document.getElementById('tomTemp');
+
+const dayAfter = document.getElementById('dayAftr');
+const dayAfterIcon = document.getElementById('img3');
+const dayAfterTemp = document.getElementById('dayAftrTemp')
+
+const parso = document.getElementById('parso');
+const parsoImg = document.getElementById('img4');
 
 
 const getWeather =  async () => {
@@ -32,12 +38,13 @@ console.log(val);
    document.getElementById('secondry').classList.remove('hidden');
   console.log(data.forecast);
 
+  document.getElementById('me').classList.remove('hidden');
 
     let check = data.location.name;
     cityTxt.textContent = check;
     console.log(check);
  region.textContent = data.current.temp_c+'°C';
-localTime.textContent = data.location.localtime;
+
 // if(check != val) {
 //        prompt("Not a city");
 // }
@@ -59,6 +66,22 @@ const date3String = date3.toString();
 const dinalDate3 =(date3String.slice(5,10));
 parso.textContent = dinalDate3;
 
+
+const KalImg = data.forecast.forecastday[0].day.condition.icon;
+kalIcon.src = KalImg;
+
+kalTemp.textContent = data.forecast.forecastday[0].day.avgtemp_c+'°C';
+console.log(KalImg);
+
+
+dayAfterIcon.src = data.forecast.forecastday[1].day.condition.icon;
+dayAfterTemp.textContent = data.forecast.forecastday[1].day.avgtemp_c+'°C';
+
+const Parso_Img = data.forecast.forecastday[2].day.condition.icon;
+parsoImg.src = Parso_Img;
+
+const parsoTempp = data.forecast.forecastday[2].day.avgtemp_c+'°C';
+document.getElementById('parsoTemp').textContent = parsoTempp;
 
 
 
